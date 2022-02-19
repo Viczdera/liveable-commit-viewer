@@ -1,0 +1,116 @@
+:root {
+  --blue: #18214d;
+  --white: #ffffff;
+  --orange: #f3663f;
+  --neutral: #dfe4ea;
+}
+
+.viewer_cont {
+  display: flex;
+  flex-direction: column;
+}
+.nav,
+.body {
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+}
+.nav > h2,
+h3 {
+  color: var(--blue);
+}
+.nav > h2,
+h1 {
+  font-family: "Inter-Bold";
+}
+.navlinks {
+  display: flex;
+}
+.navlinks > h1,
+h3 {
+  margin: 0px 10px;
+  font-family: "Inter-Regular";
+}
+
+/*Body*/
+.body {
+  max-width: 2000px;
+  outline: 2px solid beige;
+  align-self: center;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+}
+.body > h1 {
+  font-family: "Inter-Bold";
+  font-size: 56px;
+  text-align: center;
+  color: var(--blue);
+}
+.body > p {
+  font-family: "Inter-Medium";
+  font-size: 20px;
+  max-width: 420px;
+  align-self: center;
+  text-align: center;
+}
+
+/*form*/
+.form_cont{
+    display: flex;
+    justify-content: center;
+    padding: 4%;
+}
+form {
+  height: 400px;
+  width: 396px;
+  display: flex;
+  flex-direction: column;
+  max-width: 2000px;
+}
+form > input {
+  background: var(--neutral);
+}form>input,button{
+    height: 58px;
+    margin: 12px;
+    border-radius: 8px;
+}
+form>button{
+  background: var(--orange);
+  color:#fff;
+}
+
+@media only screen and (min-width: 1000px) {
+  .nav {
+    display: flex;
+    flex-direction: row !important;
+    position: relative;
+  }
+  .navlinks {
+    position: absolute;
+    right: 5%;
+  }
+  .navlinks > h1,
+  h3 {
+    margin: 0px 30px;
+    font-family: "Inter-Light";
+  }
+
+  /*form*/
+  form{
+      display: flex;
+      flex-direction: row;
+      width: max-content;
+  }
+  form > input {
+    width: 694px;
+    height: 58px;
+  }
+  form>button{
+      width: 210px;
+  }
+}
