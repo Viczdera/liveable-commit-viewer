@@ -8,6 +8,7 @@
 .viewer_cont {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .nav,
 .body {
@@ -86,6 +87,41 @@ form>button{
     text-align: center;
     font-family: 'Inter-Light';
 }
+
+/*display screen*/
+.resultss{
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  padding: 5%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error{
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  padding: 5%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.resultss>button,.error>button{
+  position: absolute;
+  
+  bottom: 0px;
+  width: 200px;
+ background-color:#f3663f;
+ color: #fff;
+}
+
 
 @media only screen and (min-width: 1000px) {
   .nav {

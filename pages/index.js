@@ -1,4 +1,5 @@
-import Fetch from "../components/fetch";
+import Fetch from "../components/Fetch";
+
 
 export default function Home() {
   return (
@@ -23,7 +24,6 @@ export default function Home() {
 
       <Fetch />
       <h5>Or pick one of these suggested repos</h5>
-    
     </div>
   );
 }
