@@ -1,5 +1,7 @@
 import axios from "axios";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import ErrorSvg from "../Asssets/404-error.svg"
 
 function Fetch() {
   const [commit, setCommits] = useState([]);
@@ -11,9 +13,9 @@ function Fetch() {
   useEffect(async () => {
     try {
       const res = await axios.get(
-        " https://api.github.com/repos/octocat/hello-world"
+        " https://api.github.com/repos/Viczdera/profile/commits"
       );
-      console.log(res);
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -28,7 +30,8 @@ function Fetch() {
       const res = await axios.get(` https://api.github.com/repos/${input}/commits`);
       setLoading(false);
 
-      console.log(res);
+      console.log(res.data);
+      setCommits(res.data)
     } catch (err) {
       console.log(err);
       setError(true);
@@ -54,6 +57,24 @@ function Fetch() {
         <div className="resultss">
           <span>CommitViewer</span>
           <h2>{input}</h2>
+          <div className="commitlist">
+            {commit.map((c)=>(
+              <div className="commits">
+                <img src={c.committer.avatar_url} alt="avatar" width="30px" height="30px" style={{borderRadius:"50%"}}/>
+              <a href={c.html_url}>
+
+                <h5>{c.commit.message}</h5>
+               
+              </a>
+              <span>
+                {c.commit.committer.date}
+              </span>
+
+              </div>
+            ))}
+
+          </div>
+
           {loading ? <h3>Loading</h3> : ""}
           <button className="closeBtn" onClick={() => setResultScreen(false)} >Close</button>
         </div>
@@ -62,7 +83,7 @@ function Fetch() {
       )}
       {error ? (
         <div className="error">
-          <h1>NOT FOUND</h1>
+          <Image src={ErrorSvg} width="500px"  alt="error"/>
           <button className="closeBtn" onClick={() => setError(false)} >X</button>
         </div>
       ) : (
